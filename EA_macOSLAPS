@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Check to see if macOS Laps is installed and report version
+macOSLapsInstalled="$(ls /usr/local/laps/ | grep macOSLAPS)"
+if [ "$macOSLapsInstalled" != "macOSLAPS" ]; then
+	echo "<result>Not Available</result>"
+else
+	macOSLapsVersion="$(/usr/local/laps/macOSLAPS -version | awk '{print $1}')"
+	echo "<result>$macOSLapsVersion</result>"
+fi
